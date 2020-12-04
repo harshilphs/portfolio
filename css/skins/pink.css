@@ -11,7 +11,8 @@
 .aside .nav li a:hover,
 .aside .nav li a.active,
 .about .about-content .about-text h3 span,
-.project .project-item-inner .project-info .project-tags a{
+.project .project-item-inner .project-info .project-tags a,
+.contact .contact-info-item .icon .fa{
     color: #ec1839;
 }
 
