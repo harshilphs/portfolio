@@ -656,8 +656,8 @@
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #d4d4e3;
-    width: 100%;
     background-color: #fdf9ff;
+    width: 100%;
 }
 
 .project .project-item-inner .project-image{
@@ -805,6 +805,7 @@ body.dark .section{
     background-color: #151515;
 }
 
+body.dark .project .project-item-inner,
 body.dark .contact .contact-form .form-item .form-control,
 body.dark .project .project-item-inner .project-info,
 body.dark .about .about-content .timeline,
