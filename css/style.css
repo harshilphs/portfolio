@@ -223,6 +223,16 @@
      transform: scale(1.05);
  }
 
+ .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+
  .aside{
     width: 270px;
     background-color: #fdf9ff;
@@ -232,8 +242,8 @@
     right: 0;
     z-index: 11;
     border-right: 1px solid #e8dfec;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
  }
 
  .aside .aside-inner{
@@ -274,8 +284,8 @@
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
  }
 
  .aside .nav-toggler span{

@@ -1,4 +1,14 @@
-    
+            
+    $(document).ready(function() {
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        })
+        $(".protect").on("contextmenu", function(e) {
+            return false;
+        })
+    })
+
+
     window.addEventListener("load", function(){
         document.querySelector(".preloader").classList.add("opacity-0");
         setTimeout(function() {
@@ -57,9 +67,6 @@
     function asideSectionTogglerBtn(){
         aside.classList.toggle("open");
         navTogglerBtn.classList.toggle("open");
-        for(let i = 0; i < totalSection; i++){
-            allSection[i].classList.toggle("open");
-        }
     }
 
 

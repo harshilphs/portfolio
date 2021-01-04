@@ -10,7 +10,7 @@ session_start();
 	<link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/skins/orange.css" type="text/css">
 </head>
-<body class="dark">
+<body class="dark protect noselect">
 
   <div class="preloader">
     <div class="loader">
@@ -373,12 +373,12 @@ session_start();
               <div class="row">
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name*">
+                    <input type="text" class="form-control" name="name" placeholder="Name*" autocomplete="off" required> 
                   </div>
                 </div>
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="email" placeholder="Email*">
+                    <input type="text" class="form-control" name="email" placeholder="Email*" autocomplete="off" required>
                   </div>
                 </div>
               </div>
@@ -386,7 +386,7 @@ session_start();
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject*">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject*" autocomplete="off" required>
                   </div>
                 </div>
               </div>
@@ -394,7 +394,7 @@ session_start();
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
-                    <textarea class="form-control" name="message" placeholder="Your Message..."></textarea>
+                    <textarea class="form-control" name="message" placeholder="Your Message..." autocomplete="off" required></textarea>
                   </div>
                 </div>
               </div>
@@ -413,6 +413,7 @@ session_start();
     </div>
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
