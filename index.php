@@ -3,9 +3,14 @@ session_start();
 ?>
 <html lang="en">
 <head>
-  <title>Harshil Padhiyar</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Harshil Padhiyar</title>
+  <meta name="description" content="Hello, I'm Harshil Padhiyar and software developer.">
+  <meta name="keywords" content="Harshil, harshil, Padhiyar, padhiyar, Harshil Padhiyar, harshil padhiyar, padhiyar harshil">
+  <meta name="author" content="Harshil Padhiyar">
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
    <!-- Template css Files -->
 	<link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/skins/orange.css" type="text/css">
@@ -69,7 +74,7 @@ session_start();
             <div class="about-content padd-15">
               <div class="row">
                 <div class="about-text padd-15">
-                  <h3>I'm Harshil Padhiyar and <span>Programmer • Full Stack Developer • Good Learner</span></h3>
+                  <h3>I'm Harshil Padhiyar and <span>Programmer • Software Developer • Good Learner</span></h3>
                   <p>I am a Junior in the Aditya Silver Oak Institute Of Technology at the Silver Oak University, 
                     pursuing an undergraduate degree. I am majoring in Information Technology, 
                     with intent to double major in Mathematics with Statistics and Data Science concentration. 
