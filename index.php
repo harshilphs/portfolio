@@ -2,6 +2,14 @@
 session_start();
 require('php/UserInfo.php');
 $ip=UserInfo::get_ip();
+
+//geoLocation from ip
+require_once('php/getGeoLocation.php');
+
+$country=ip_info($ip,"Country");
+$state=ip_info($ip,"State");
+$city=ip_info($ip,"City");
+
 $device=UserInfo::get_device();
 $os=UserInfo::get_os();
 $browser=UserInfo::get_browser();
