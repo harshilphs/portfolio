@@ -1,5 +1,19 @@
 <?php
 session_start();
+require('php/UserInfo.php');
+$ip=UserInfo::get_ip();
+$device=UserInfo::get_device();
+$os=UserInfo::get_os();
+$browser=UserInfo::get_browser();
+
+// set the timezone first
+if(function_exists('date_default_timezone_set')) {
+  date_default_timezone_set("Asia/Kolkata");
+}
+
+$date=date("d/m/Y");
+$time=date("h:i:s A");
+require_once('php/pdo.php');
 ?>
 <html lang="en">
 <head>
@@ -364,7 +378,7 @@ session_start();
           </div>
 
           <div class="row">
-            <form class="contact-form padd-15" action="action_page.php" method="POST">
+            <form class="contact-form padd-15" action="php/action_page.php" method="POST">
               <?php
                 if ( isset($_SESSION['error']) ) {
                   echo '<script type="text/javascript">alert("'.htmlentities($_SESSION['error']).'");</script>';
