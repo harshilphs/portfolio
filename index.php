@@ -1,5 +1,4 @@
 <?php
-session_start();
 require('php/UserInfo.php');
 $ip=UserInfo::get_ip();
 
@@ -36,6 +35,8 @@ require_once('php/pdo.php');
    <!-- Template css Files -->
 	<link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/skins/orange.css" type="text/css">
+
+  <link rel="stylesheet" href="css/toastr.css" type="text/css">
 </head>
 <body class="dark protect noselect">
 
@@ -386,26 +387,16 @@ require_once('php/pdo.php');
           </div>
 
           <div class="row">
-            <form class="contact-form padd-15" action="php/action_page.php" method="POST">
-              <?php
-                if ( isset($_SESSION['error']) ) {
-                  echo '<script type="text/javascript">alert("'.htmlentities($_SESSION['error']).'");</script>';
-                  unset($_SESSION['error']);
-                }
-                if ( isset($_SESSION['success']) ) {
-                  echo '<script type="text/javascript">alert("'.htmlentities($_SESSION['success']).'");</script>';
-                  unset($_SESSION['success']);
-                }
-              ?>
+            <form class="contact-form padd-15" id="contact-form" method="post">
               <div class="row">
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name*" autocomplete="off" required> 
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name*" autocomplete="off" > 
                   </div>
                 </div>
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="email" placeholder="Email*" autocomplete="off" required>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email*" autocomplete="off" >
                   </div>
                 </div>
               </div>
@@ -413,7 +404,7 @@ require_once('php/pdo.php');
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject*" autocomplete="off" required>
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject*" autocomplete="off" >
                   </div>
                 </div>
               </div>
@@ -421,7 +412,7 @@ require_once('php/pdo.php');
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
-                    <textarea class="form-control" name="message" placeholder="Your Message..." autocomplete="off" required></textarea>
+                    <textarea class="form-control" name="message" id="message" placeholder="Your Message..." autocomplete="off" ></textarea>
                   </div>
                 </div>
               </div>
@@ -441,6 +432,7 @@ require_once('php/pdo.php');
   </div>
 
   <script src="js/jquery.min.js"></script>
+  <script src="js/toastr.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

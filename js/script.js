@@ -69,4 +69,82 @@
         navTogglerBtn.classList.toggle("open");
     }
 
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+      }
+  
+      //form submit
+      var frm1 = $('#contact-form');
+      var res_message;
+  
+      frm1.submit(function (e) {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+        e.preventDefault();
+        if (name == "") {
+          res_message = "Please, enter your name!";
+          toastr.error(res_message);
+        }
+        else if ( email == ""){
+          res_message = "Please, enter your valid email!";
+          toastr.error(res_message);
+        }
+        
+        else if ( subject == ""){
+          res_message = "Please, enter subject!";
+          toastr.error(res_message);
+        }
+        else if ( message == ""){
+          res_message = "Please, write your message!";
+          toastr.error(res_message);
+        }
+        else {
+          $.ajax({
+            type: 'POST',
+            url: 'php/action_page.php',
+            data: frm1.serialize(),
+            datatype: 'json',
+            success: function (response) {
+              data=JSON.parse(response);
+              if (data.back_msg == 'Something went wrong!!') {
+                document.getElementById('contact-form').reset();
+                res_message = data.back_msg;
+                toastr.error(res_message);
+              }
+              else if ( data.back_msg == 'Email must have an at-sign (@)') {
+                  document.getElementById('contact-form').reset();
+                  res_message = data.back_msg; 
+                  toastr.error(res_message);
+              }
+              else if ( data.back_msg == 'Response recorded, I will contact you soon..!') {
+                  document.getElementById('contact-form').reset();
+                  res_message = data.back_msg;
+                  toastr.success(res_message);
+              }
+            },
+            error: function (data) {
+              document.getElementById('contact-form').reset();
+              res_message = "Try later..";
+              toastr.error(res_message);
+            },
+          });
+        }
+      });
+
 

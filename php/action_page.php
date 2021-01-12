@@ -1,16 +1,16 @@
 <?php
 
-session_start();
 if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
-
+	$back_msg = "";
 	if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['subject']) || empty($_POST['message'])){
-        $_SESSION['error'] = "All fields are required";
-        header("location: index.php");
-        return;
+        $back_msg = "All fields are required";
+		$retVal = array("back_msg"=>$back_msg);
+		echo json_encode($retVal);
     } elseif(!strchr($_POST['email'],"@")){
-		$_SESSION['error'] = "Email must have an at-sign (@)";
-		header("location: index.php");
-		return;
+		$back_msg = "Email must have an at-sign (@)";
+		$retVal = array("back_msg"=>$back_msg);
+		echo json_encode($retVal);
+
     } else {
 	    $to = "harshilpadhiyar786@gmail.com";
 		$subject = $_POST['subject'];
@@ -19,9 +19,9 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
 
 		mail($to,$subject,$txt,$headers);
 	
-	    $_SESSION['success'] = "Response recorded, I'll contact you soon..";
-	    header("location: index.php");
-	    return;
+	    $back_msg = "Response recorded, I will contact you soon..";
+		$retVal = array("back_msg"=>$back_msg);
+		echo json_encode($retVal);
     }
 }
 
