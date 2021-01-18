@@ -61,6 +61,7 @@ require_once('php/pdo.php');
           <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
           <li><a href="#projects"><i class="fa fa-briefcase"></i> Projects</a></li>
+		  <li><a href="https://drive.google.com/drive/folders/1UiQOpRIzsA7pZ5_0Kfk373Sb0PLIszkZ?usp=sharing" target="_blank"><i class="fa fa-trophy"></i> Achievements</a></li>
           <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
         </ul>
         <div class="copyright-text">
