@@ -20,7 +20,7 @@ if(function_exists('date_default_timezone_set')) {
 
 $date=date("d/m/Y");
 $time=date("h:i:s A");
-require_once('php/pdo.php');
+require_once('php/pdo.php'); 
 ?>
 <html lang="en">
 <head>
@@ -38,12 +38,12 @@ require_once('php/pdo.php');
 
   <link rel="stylesheet" href="css/toastr.css" type="text/css">
 </head>
-<body class="dark protect noselect">
-
+<body class="dark protect noselect"> <!--  protect noselect -->
+  
   <div class="preloader">
     <div class="loader">
     </div>
-  </div>
+  </div> 
 
   <div class="main-container">
     <div class="aside">
@@ -61,7 +61,7 @@ require_once('php/pdo.php');
           <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
           <li><a href="#projects"><i class="fa fa-briefcase"></i> Projects</a></li>
-		  <li><a href="https://drive.google.com/drive/folders/1UiQOpRIzsA7pZ5_0Kfk373Sb0PLIszkZ?usp=sharing" target="_blank"><i class="fa fa-trophy"></i> Achievements</a></li>
+		      <li><a href="#achievements"><i class="fa fa-trophy"></i> Achievements</a></li>
           <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
         </ul>
         <div class="copyright-text">
@@ -76,7 +76,7 @@ require_once('php/pdo.php');
           <div class="intro">
             <img src="images/about.jpeg" alt="profile" class="shadow-dark">
             <h1>Harshil Padhiyar</h1>
-            <p>Programmer • Full Stack Developer • Good Learner</p>
+            <p>Programmer • Software Developer • Good Learner</p>
             <div class="social-links">
               <a href="https://twitter.com/harshilphs" target="_blank"><i class="fa fa-twitter"></i></a>
               <a href="https://www.facebook.com/harshilphs" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -359,6 +359,60 @@ require_once('php/pdo.php');
           </div>
         </div>
       </section>
+
+      <section class="achievements section" id="achievements">
+        <div class="container"> 
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Achievements</h2>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="achievement-table padd-15" style="width: 100%;">
+              <!--
+              <table>
+                <tr>
+                  <th class="table-heading1">Certification</th>
+                  <th class="table-heading2">Issued On</th>
+                  <th class="table-heading3">View Certificate</th>
+                </tr>-->
+                <?php
+                  $pdo = new PDO('mysql:host=localhost;dbname=resumesiteclientdetails','root','');
+                  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+                  $stmt = $pdo->query("SELECT * FROM achive ORDER BY date DESC");
+                  $stmt1 = $pdo->query("SELECT * FROM achive");
+                  $row1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+                  if($row1 === false){
+                    echo '<h1 class="dataError">Data not found..</h1>';
+                  } 
+                  else{
+                    echo '<table><tr>';
+                    echo '<th class="table-heading1">Certification</th>';
+                    echo '<th class="table-heading2">Issued On</th>';
+                    echo '<th class="table-heading3">View Certificate</th></tr>';
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                      echo ("<tr><td>");
+                      echo htmlentities($row['cerification']);
+                      echo ("</td><td>");
+                      $date=date_create($row['date']);
+                      echo htmlentities(date_format($date,"d-m-Y"));
+                      echo ("</td><td>");
+                      echo ('<a class="table-heading3-link" target="_blank" href="'.$row['file_path'].'">View</a>');
+                      echo ("</td></tr>"); 
+                    }
+                    echo '</table>'."\n";
+                  }
+                ?>
+              </table>
+            </div>   
+          </div>
+        
+        </div>
+      </section>
+          
 
       <section class="contact section" id="contact">
         <div class="container"> 

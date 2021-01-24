@@ -29,6 +29,39 @@
     font-family: 'Montserrat', sans-serif;
  }
 
+
+ .achievement-table{
+     width: 100%;
+ }
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f2f2fc;
+    margin: 0 auto;
+    text-align: center;
+}
+
+ table, td, th {
+    border: 2px solid #222222;
+    padding: 8px;
+ }
+
+ .table-heading1{
+     width: 60%;
+ }
+ .table-heading2{
+     width: 20%;
+ }
+ .table-heading3{
+     width: 20%;
+ }
+
+ .dataError{
+    color:#f2f2fc;
+    text-align:center;
+ }
+
  .section{
      background-color: #f2f2fc;
      min-height: 100vh;

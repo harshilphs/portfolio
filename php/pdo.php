@@ -16,6 +16,8 @@ $stmt->execute(array(
     ':state' => $state,
     ':city' => $city)
 );
+
+
 ?>
 
 
