@@ -49,12 +49,15 @@
 
  .table-heading1{
      width: 60%;
+     background-color: #222222;
  }
  .table-heading2{
      width: 20%;
+     background-color: #222222;
  }
  .table-heading3{
      width: 20%;
+     background-color: #222222;
  }
 
  .dataError{

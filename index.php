@@ -1,4 +1,4 @@
-<?php
+<?php /*
 require('php/UserInfo.php');
 $ip=UserInfo::get_ip();
 
@@ -20,7 +20,7 @@ if(function_exists('date_default_timezone_set')) {
 
 $date=date("d/m/Y");
 $time=date("h:i:s A");
-require_once('php/pdo.php'); 
+require_once('php/pdo.php'); */
 ?>
 <html lang="en">
 <head>
