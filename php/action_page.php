@@ -18,8 +18,20 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
 		$headers = "From: ".$_POST['email'];
 
 		mail($to,$subject,$txt,$headers);
+
+        $pdo = new PDO('mysql:host=sql302.epizy.com;dbname=epiz_28046518_personalSite','epiz_28046518','a8UTO20gASQzaG');
+
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $stmt = $pdo->prepare('INSERT INTO UserResponse(user_name,user_mail,user_sub,user_msg) VALUES ( :name, :mail, :sub, :msg)');
+
+        $stmt->execute(array(
+            ':name' => $_POST['name'],
+            ':mail' => $_POST['email'],
+            ':sub' => $subject,
+            ':msg' => $_POST['message'])
+        );
 	
-	    $back_msg = "Response recorded, I will contact you soon..";
+	    $back_msg = "Done";
 		$retVal = array("back_msg"=>$back_msg);
 		echo json_encode($retVal);
     }

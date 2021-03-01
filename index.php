@@ -1,4 +1,4 @@
-<?php /*
+<?php 
 require('php/UserInfo.php');
 $ip=UserInfo::get_ip();
 
@@ -20,7 +20,7 @@ if(function_exists('date_default_timezone_set')) {
 
 $date=date("d/m/Y");
 $time=date("h:i:s A");
-require_once('php/pdo.php'); */
+require_once('php/pdo.php');
 ?>
 <html lang="en">
 <head>
@@ -37,13 +37,23 @@ require_once('php/pdo.php'); */
   <link rel="stylesheet" href="css/skins/orange.css" type="text/css">
 
   <link rel="stylesheet" href="css/toastr.css" type="text/css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-954XTPN7QY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-954XTPN7QY');
+    </script>
+
 </head>
-<body class="dark protect noselect"> <!--  protect noselect -->
-  
+<body class="dark protect noselect">
+
   <div class="preloader">
     <div class="loader">
     </div>
-  </div> 
+  </div>
 
   <div class="main-container">
     <div class="aside">
@@ -61,7 +71,7 @@ require_once('php/pdo.php'); */
           <li><a href="#home" class="active"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
           <li><a href="#projects"><i class="fa fa-briefcase"></i> Projects</a></li>
-		      <li><a href="#achievements"><i class="fa fa-trophy"></i> Achievements</a></li>
+          <li><a href="#achievements"><i class="fa fa-trophy"></i> Achievements</a></li>
           <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
         </ul>
         <div class="copyright-text">
@@ -81,7 +91,7 @@ require_once('php/pdo.php'); */
               <a href="https://twitter.com/harshilphs" target="_blank"><i class="fa fa-twitter"></i></a>
               <a href="https://www.facebook.com/harshilphs" target="_blank"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/harshilphs" target="_blank"><i class="fa fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/harshilphs" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://in.linkedin.com/in/harshilphs" target="_blank"><i class="fa fa-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -99,7 +109,7 @@ require_once('php/pdo.php'); */
               <div class="row">
                 <div class="about-text padd-15">
                   <h3>I'm Harshil Padhiyar and <span>Programmer • Software Developer • Good Learner</span></h3>
-                  <p>I am a Junior in the Aditya Silver Oak Institute Of Technology at the Silver Oak University, 
+                  <p>I study in the Aditya Silver Oak Institute Of Technology at the Silver Oak University, 
                     pursuing an undergraduate degree. I am majoring in Information Technology, 
                     with intent to double major in Mathematics with Statistics and Data Science concentration. 
                     I am interested in exploring the fields of Software Engineering, 
@@ -252,6 +262,21 @@ require_once('php/pdo.php'); */
             <div class="project-item padd-15">
               <div class="project-item-inner shadow-dark">
                 <div class="project-image">
+                  <img src="images/project/tic-tac-toe.png" alt="project image">
+                  <div class="project-date">Feb 2021</div>
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Tic-Tac-Toe Game</h4>
+                  <p class="project-description">I developed a mobile game for android os. I got knowledge of android studio and learn how to design activity and 
+                  implement the logic of game by java Programming language.</p>
+                  <p class="project-tags">Tags : <a href="#">Android</a> , <a href="#">Java</a> , <a href="#">XML</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-item padd-15">
+              <div class="project-item-inner shadow-dark">
+                <div class="project-image">
                   <img src="images/project/resume-site.png" alt="project image">
                   <div class="project-date">Dec 2020</div>
                 </div>
@@ -359,7 +384,7 @@ require_once('php/pdo.php'); */
           </div>
         </div>
       </section>
-
+      
       <section class="achievements section" id="achievements">
         <div class="container"> 
           <div class="row">
@@ -369,22 +394,14 @@ require_once('php/pdo.php'); */
           </div>
           
           <div class="row">
-            <div class="achievement-table padd-15" style="width: 100%;">
-              <!--
-              <table>
-                <tr>
-                  <th class="table-heading1">Certification</th>
-                  <th class="table-heading2">Issued On</th>
-                  <th class="table-heading3">View Certificate</th>
-                </tr>-->
-                <?php
-                  $pdo = new PDO('mysql:host=localhost;dbname=resumesiteclientdetails','root','');
-                  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            <div class="achievement-table" style="width: 100%;">
 
-                  $stmt = $pdo->query("SELECT * FROM achive ORDER BY date DESC");
-                  $stmt1 = $pdo->query("SELECT * FROM achive");
-                  $row1 = $stmt1->fetch(PDO::FETCH_ASSOC);
-                  if($row1 === false){
+                <?php
+
+                  $stmt1 = $pdo->query("SELECT * FROM achive ORDER BY date DESC");
+                  $stmt2 = $pdo->query("SELECT * FROM achive");
+                  $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+                  if($row2 === false){
                     echo '<h1 class="dataError">Data not found..</h1>';
                   } 
                   else{
@@ -392,17 +409,18 @@ require_once('php/pdo.php'); */
                     echo '<th class="table-heading1">Certification</th>';
                     echo '<th class="table-heading2">Issued On</th>';
                     echo '<th class="table-heading3">View Certificate</th></tr>';
-
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    echo '<div style="font-size:10px;">';
+                    while ($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
                       echo ("<tr><td>");
                       echo htmlentities($row['cerification']);
                       echo ("</td><td>");
                       $date=date_create($row['date']);
                       echo htmlentities(date_format($date,"d-m-Y"));
                       echo ("</td><td>");
-                      echo ('<a class="table-heading3-link" target="_blank" href="'.$row['file_path'].'">View</a>');
+                      echo ('<a class="table-heading3-link" target="_blank" style="font-size:15px;" href="'.$row['file_path'].'">View</a>');
                       echo ("</td></tr>"); 
                     }
+                    echo '</div>';
                     echo '</table>'."\n";
                   }
                 ?>
@@ -412,7 +430,6 @@ require_once('php/pdo.php'); */
         
         </div>
       </section>
-          
 
       <section class="contact section" id="contact">
         <div class="container"> 

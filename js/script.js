@@ -1,4 +1,4 @@
-        
+      
     $(document).ready(function() {
         $('body').bind('cut copy paste', function (e) {
             e.preventDefault();
@@ -8,13 +8,12 @@
         })
     })
 
-
     window.addEventListener("load", function(){
         document.querySelector(".preloader").classList.add("opacity-0");
         setTimeout(function() {
             document.querySelector(".preloader").style.display = "none";
-        },3000)
-    })
+        },2000);
+    });
     
     
     const nav = document.querySelector(".nav"),
@@ -53,7 +52,7 @@
             allSection[i].classList.remove("active");
         }
         const target = element.getAttribute("href").split("#")[1];
-        document.querySelector("#"+target).classList.add("active")
+        document.querySelector("#"+target).classList.add("active");
     }
 
 
@@ -128,21 +127,26 @@
                 toastr.error(res_message);
               }
               else if ( data.back_msg == 'Email must have an at-sign (@)') {
-                  document.getElementById('contact-form').reset();
                   res_message = data.back_msg; 
                   toastr.error(res_message);
               }
-              else if ( data.back_msg == 'Response recorded, I will contact you soon..!') {
+              else if ( data.back_msg == 'Done') {
                   document.getElementById('contact-form').reset();
-                  res_message = data.back_msg;
+                  res_message = 'I will contact you soon..';
                   toastr.success(res_message);
               }
+              else {
+                  document.getElementById('contact-form').reset();
+                  res_message = 'Something Went Wrong! Try later..'; 
+                  toastr.error(res_message);
+              }
+              
             },
             error: function (data) {
               document.getElementById('contact-form').reset();
-              res_message = "Try later..";
+              res_message = 'Something Went Wrong! Try later..';
               toastr.error(res_message);
-            },
+            }
           });
         }
       });
