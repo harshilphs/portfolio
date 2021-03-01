@@ -19,7 +19,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
 
 		mail($to,$subject,$txt,$headers);
 
-        $pdo = new PDO('mysql:host=sql302.epizy.com;dbname=epiz_28046518_personalSite','epiz_28046518','a8UTO20gASQzaG');
+        $pdo = new PDO('mysql:host=localhost;dbname=xyz','root','');
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $stmt = $pdo->prepare('INSERT INTO UserResponse(user_name,user_mail,user_sub,user_msg) VALUES ( :name, :mail, :sub, :msg)');
