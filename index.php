@@ -31,6 +31,7 @@ require_once('php/pdo.php');
   <meta name="description" content="Hello, I'm Harshil Padhiyar and software developer.">
   <meta name="keywords" content="Harshil, harshil, Padhiyar, padhiyar, Harshil Padhiyar, harshil padhiyar, padhiyar harshil">
   <meta name="author" content="Harshil Padhiyar">
+  <meta http-equiv="cache-control" content="no-cache">
   <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
    <!-- Template css Files -->
 	<link rel="stylesheet" href="css/style.css" type="text/css">
@@ -46,6 +47,9 @@ require_once('php/pdo.php');
     
       gtag('config', 'G-954XTPN7QY');
     </script>
+	
+	<!-- form cap -->
+	<script src="https://www.google.com/recaptcha/api.js"></script> 
 
 </head>
 <body class="dark protect noselect">
@@ -488,6 +492,15 @@ require_once('php/pdo.php');
                   </div>
                 </div>
               </div>
+			  
+			  <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LfjLXUaAAAAAKqyxKEAiRYpFHBUtckzn2ho0ue8"></div>
+                  </div>
+                </div>
+              </div>
+			
 
               <div class="row">
                 <div class="col-12 padd-15">

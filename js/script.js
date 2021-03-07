@@ -123,6 +123,7 @@
               data=JSON.parse(response);
               if (data.back_msg == 'Something went wrong!!') {
                 document.getElementById('contact-form').reset();
+                grecaptcha.reset();
                 res_message = data.back_msg;
                 toastr.error(res_message);
               }
@@ -132,11 +133,19 @@
               }
               else if ( data.back_msg == 'Done') {
                   document.getElementById('contact-form').reset();
+                  grecaptcha.reset();
                   res_message = 'I will contact you soon..';
+                  grecaptcha.reset();
                   toastr.success(res_message);
+              }
+              else if ( data.back_msg == 'val failed') {
+                  grecaptcha.reset();
+                  res_message = 'Select Captcha Or Try later!'; 
+                  toastr.error(res_message);
               }
               else {
                   document.getElementById('contact-form').reset();
+                  grecaptcha.reset();
                   res_message = 'Something Went Wrong! Try later..'; 
                   toastr.error(res_message);
               }
@@ -144,6 +153,7 @@
             },
             error: function (data) {
               document.getElementById('contact-form').reset();
+              grecaptcha.reset();
               res_message = 'Something Went Wrong! Try later..';
               toastr.error(res_message);
             }
