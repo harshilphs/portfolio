@@ -1,26 +1,5 @@
 <?php 
-require('php/UserInfo.php');
-$ip=UserInfo::get_ip();
-
-//geoLocation from ip
-require_once('php/getGeoLocation.php');
-
-$country=ip_info($ip,"Country");
-$state=ip_info($ip,"State");
-$city=ip_info($ip,"City");
-
-$device=UserInfo::get_device();
-$os=UserInfo::get_os();
-$browser=UserInfo::get_browser();
-
-// set the timezone first
-if(function_exists('date_default_timezone_set')) {
-  date_default_timezone_set("Asia/Kolkata");
-}
-
-$date=date("d/m/Y");
-$time=date("h:i:s A");
-require_once('php/pdo.php');
+require_once('php/init_pdo.php');
 ?>
 <html lang="en">
 <head>
@@ -427,6 +406,7 @@ require_once('php/pdo.php');
                     echo '</div>';
                     echo '</table>'."\n";
                   }
+                  $pdo=null;
                 ?>
               </table>
             </div>   
