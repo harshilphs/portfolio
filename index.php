@@ -241,6 +241,20 @@ require_once('php/init_pdo.php');
             </div>
           </div>
           <div class="row">
+		  
+		    <div class="project-item padd-15">
+              <div class="project-item-inner shadow-dark">
+                <div class="project-image">
+                  <img src="images/project/todoApp.jpg" alt="project image">
+                  <div class="project-date">March 2021</div>
+                </div>
+                <div class="project-info">
+                  <h4 class="project-title">Todo Web Application</h4>
+                  <p class="project-description">I developed todo web application by using flask framework.Here user can add title of task and description.</p>
+                  <p class="project-tags">Tags : <a href="#">Flask</a> , <a href="#">Bootstrap</a> , <a href="#">SQlite</a></p>
+                </div>
+              </div>
+            </div>
 
             <div class="project-item padd-15">
               <div class="project-item-inner shadow-dark">
