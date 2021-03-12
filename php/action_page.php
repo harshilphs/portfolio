@@ -16,7 +16,7 @@ if(isset($_POST['g-recaptcha-response'])) {
        
         if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
             $back_msg = "";
-            if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['subject']) || empty($_POST['message'])){
+            if(empty(ltrim($_POST['name'])) || empty(ltrim($_POST['email'])) || empty(ltrim($_POST['subject'])) || empty(ltrim($_POST['message'])) ){
                 $back_msg = "All fields are required";
                 $retVal = array("back_msg"=>$back_msg);
                 echo json_encode($retVal);

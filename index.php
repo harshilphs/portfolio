@@ -13,7 +13,7 @@ require_once('php/init_pdo.php');
   <meta http-equiv="cache-control" content="no-cache">
   <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
    <!-- Template css Files -->
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/skins/orange.css" type="text/css">
 
   <link rel="stylesheet" href="css/toastr.css" type="text/css">
@@ -241,8 +241,8 @@ require_once('php/init_pdo.php');
             </div>
           </div>
           <div class="row">
-		  
-		    <div class="project-item padd-15">
+
+          	<div class="project-item padd-15">
               <div class="project-item-inner shadow-dark">
                 <div class="project-image">
                   <img src="images/project/todoApp.jpg" alt="project image">

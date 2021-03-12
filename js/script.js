@@ -12,7 +12,7 @@
         document.querySelector(".preloader").classList.add("opacity-0");
         setTimeout(function() {
             document.querySelector(".preloader").style.display = "none";
-        },500);
+        },50);
     });
     
     
@@ -126,6 +126,10 @@
                 grecaptcha.reset();
                 res_message = data.back_msg;
                 toastr.error(res_message);
+              }
+              else if ( data.back_msg == 'All fields are required') {
+                  res_message = "All fields are required Or Invalid Input."; 
+                  toastr.error(res_message);
               }
               else if ( data.back_msg == 'Email must have an at-sign (@)') {
                   res_message = data.back_msg; 
