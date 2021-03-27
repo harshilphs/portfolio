@@ -18,7 +18,7 @@ require_once('php/init_pdo.php');
 
   <link rel="stylesheet" href="css/toastr.css" type="text/css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-954XTPN7QY"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script> // edit
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
